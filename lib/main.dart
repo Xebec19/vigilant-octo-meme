@@ -45,11 +45,16 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter App'),
-        ),
-        body: newTransaction(),
-      ),
+          appBar: AppBar(
+            title: Text('Flutter App'),
+            actions: <Widget>[
+              IconButton(onPressed: () {
+
+              }, icon: Icon(Icons.add),)
+            ],
+          ),
+          body: newTransaction,
     );
+    )
   }
 }

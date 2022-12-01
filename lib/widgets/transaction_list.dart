@@ -23,10 +23,14 @@ class _TransactionListState extends State<TransactionList> {
   @override
   Widget build(BuildContext context){
     return Container(
-      children: <Widget>[
-        NewTransaction(_addNewTransaction(title, amount)),
+      width: 300,
+      children: ListView(
+        itemBuilder: (ctx, index) {
+          return NewTransaction(_addNewTransaction(title, amount)),
         TransactionList(_userTransaction),
-      ]
+        },
+        itemCount: transactions.length,
+        ),
     )
   }
 }
