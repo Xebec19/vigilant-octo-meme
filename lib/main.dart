@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import './transaction.dart';
+import 'model/transaction.dart';
+import './widgets/new_transaction.dart';
 
 void main() {
   runApp(MyHomePage());
 }
 
 class MyHomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   final List<Transaction> transactions = [
     Transaction(
       id: 't1',
@@ -33,6 +37,10 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  String titleInput;
+  String amountInput;
+  final titleController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,30 +48,7 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Flutter App'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Card(
-              color: Colors.blue,
-              child: Container(
-                width: double.infinity,
-                child: Text('Chart'),
-              ),
-              elevation: 5,
-            ),
-            Column(
-              children: transactions.map((tx) {
-                return Card(
-                  child: Text(tx.title),
-                );
-              }).toList(),
-            ),
-            Card(
-              child: Text('List of TX)'),
-            )
-          ],
-        ),
+        body: newTransaction(),
       ),
     );
   }
