@@ -26,7 +26,7 @@ class newTransaction extends StatelessWidget {
                   ),
                   TextButton(
                       child: Text('Add Transaction'),
-                      textColor: Colors.purple,
+                      textColor: Theme.of(context).primaryColor,
                       onPressed: () {
                         double.parse(amountController.text)
                       })),

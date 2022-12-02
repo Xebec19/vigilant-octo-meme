@@ -24,7 +24,14 @@ class _TransactionListState extends State<TransactionList> {
   Widget build(BuildContext context){
     return Container(
       width: 300,
-      children: ListView(
+      children: transactions.isEmpty ? Column(children: <Widget>[
+        Text(
+          'No Transactions added yet!',
+          style: Theme.of(context).textTheme.title,
+        ),
+        Container(height: 200, child: Image.asset('asset/images/waiting.png', fit: BoxFit.cover),)
+        
+      ]) : ListView(
         itemBuilder: (ctx, index) {
           return NewTransaction(_addNewTransaction(title, amount)),
         TransactionList(_userTransaction),
